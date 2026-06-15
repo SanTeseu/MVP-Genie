@@ -1,0 +1,211 @@
+/* Typography and General Styling */
+body {
+  font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-plus-jakarta {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Stunning Premium Gradient Backgrounds */
+.custom-gradient-bg {
+  background: linear-gradient(180deg, #44BDD4 0%, #0D69BA 50%, #004d8c 100%);
+  min-height: 100vh;
+}
+
+.bg-genie-gradient {
+  background: linear-gradient(180deg, #44BDD4 0%, #0D69BA 100%);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Micro Interactivity Utilities */
+.active-scale:active {
+  transform: scale(0.96);
+  transition: transform 0.15s ease;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes checkmark {
+  from {
+    stroke-dashoffset: 60;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes voice-wave {
+  0%, 100% {
+    height: 8px;
+  }
+  50% {
+    height: 38px;
+  }
+}
+
+/* Animation Classes */
+.fade-up-1 { animation: fadeUp 0.4s ease 0.05s forwards; opacity: 0; }
+.fade-up-2 { animation: fadeUp 0.4s ease 0.15s forwards; opacity: 0; }
+.fade-up-3 { animation: fadeUp 0.4s ease 0.25s forwards; opacity: 0; }
+.fade-up-4 { animation: fadeUp 0.4s ease 0.35s forwards; opacity: 0; }
+.fade-up-5 { animation: fadeUp 0.4s ease 0.45s forwards; opacity: 0; }
+
+.scale-in {
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.check-circle-draw {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: checkmark 0.6s ease-out 0.3s forwards;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+.mic-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 9999px;
+  background: rgba(14, 165, 233, 0.4);
+  animation: pulse-ring 1.8s cubic-bezier(0.25, 0, 0, 1) infinite;
+  pointer-events: none;
+}
+
+.wave-bar {
+  width: 3px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 99px;
+  animation: voice-wave 1.2s ease-in-out infinite;
+}
+.wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; }
+.wave-bar:nth-child(4) { animation-delay: 0.3s; }
+.wave-bar:nth-child(5) { animation-delay: 0.4s; }
+.wave-bar:nth-child(6) { animation-delay: 0.5s; }
+.wave-bar:nth-child(7) { animation-delay: 0.6s; }
+
+.waveform-bar-static {
+  width: 2px;
+  background-color: #38bdf8;
+  margin: 0 1px;
+  border-radius: 1px;
+}
+
+/* Switch styling for configurations */
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  width: 48px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.25s;
+  flex-shrink: 0;
+  position: relative;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.toggle-knob {
+  position: absolute;
+  left: 2px;
+  width: 19px;
+  height: 19px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.toggle-input:checked + .toggle-label {
+  background: #38bdf8;
+  border-color: #38bdf8;
+}
+
+.toggle-input:checked + .toggle-label .toggle-knob {
+  transform: translateX(22px);
+}
+
+/* Custom Dropzone styles */
+.dropzone-border {
+  border: 2px dashed rgba(255, 255, 255, 0.35);
+  transition: all 0.25s ease;
+}
+
+.dropzone-border:hover, .dropzone-dragover {
+  border-color: #38bdf8;
+  background: rgba(255, 255, 255, 0.08);
+}

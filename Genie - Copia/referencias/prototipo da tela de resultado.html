@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Resultado da IA - Genie</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          'plus-jakarta': ['"Plus Jakarta Sans"', 'sans-serif'],
+          'be-vietnam': ['"Be Vietnam Pro"', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+  .custom-gradient-bg {
+    background: linear-gradient(180deg, #57c1e8 0%, #007bbd 50%, #004d8c 100%);
+    min-height: 100vh;
+  }
+  .active-scale:active { transform: scale(0.95); transition: transform 0.2s ease; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.85); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes checkmark {
+    from { stroke-dashoffset: 60; }
+    to   { stroke-dashoffset: 0; }
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .fade-up-1 { animation: fadeUp 0.5s ease 0.1s forwards; opacity: 0; }
+  .fade-up-2 { animation: fadeUp 0.5s ease 0.25s forwards; opacity: 0; }
+  .fade-up-3 { animation: fadeUp 0.5s ease 0.4s forwards; opacity: 0; }
+  .fade-up-4 { animation: fadeUp 0.5s ease 0.55s forwards; opacity: 0; }
+  .scale-in  { animation: scaleIn 0.5s ease 0.05s forwards; opacity: 0; }
+
+  .check-circle {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: checkmark 0.6s ease 0.4s forwards;
+  }
+  .spinner {
+    animation: spin 1s linear infinite;
+  }
+
+  /* Typewriter effect for transcript */
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  .typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 1.2s steps(40, end) 0.3s forwards;
+    width: 0;
+  }
+</style>
+</head>
+<body class="font-be-vietnam text-white custom-gradient-bg">
+
+<!-- TOP APP BAR -->
+<header class="fixed top-0 w-full z-50 h-16 flex justify-between items-center px-6"
+        style="background: rgba(255,255,255,0.1); backdrop-filter: blur(12px);">
+  <button onclick="history.back()" aria-label="Voltar" class="active-scale p-2">
+    <span class="material-icons text-3xl">arrow_back</span>
+  </button>
+  <h1 class="font-plus-jakarta font-black text-white text-2xl tracking-tight">Genie</h1>
+  <div class="w-10"></div>
+</header>
+
+<!-- MAIN -->
+<main class="pt-20 pb-32 px-5 max-w-md mx-auto flex flex-col items-center gap-6">
+
+  <!-- Success Icon -->
+  <section class="scale-in flex flex-col items-center pt-4">
+    <div class="w-24 h-24 rounded-full flex items-center justify-center mb-4 relative"
+         style="background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.4);">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="20" stroke="white" stroke-width="2" opacity="0.3"/>
+        <polyline class="check-circle" points="14,24 21,31 34,17"
+                  stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <h2 class="font-plus-jakarta font-black text-2xl text-center">Tarefa criada!</h2>
+    <p class="text-white/70 text-sm text-center mt-1">A IA organizou tudo automaticamente</p>
+  </section>
+
+  <!-- Transcript Card -->
+  <section class="fade-up-1 w-full rounded-3xl p-5"
+           style="background: rgba(255,255,255,0.12); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="material-icons text-sky-200 text-lg">mic</span>
+      <p class="text-white/70 text-xs font-semibold uppercase tracking-wider">Você disse</p>
+    </div>
+    <p class="text-white font-medium text-sm leading-relaxed typewriter">
+      "Amanhã às duas da tarde preciso ir na reunião com o professor orientador"
+    </p>
+  </section>
+
+  <!-- AI Result Card -->
+  <section class="fade-up-2 w-full bg-white rounded-3xl shadow-2xl overflow-hidden">
+
+    <!-- Card Header -->
+    <div class="px-6 py-4 flex items-center gap-3"
+         style="background: linear-gradient(135deg, #0ea5e9, #2563eb);">
+      <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+        <span class="material-icons text-white text-lg">auto_awesome</span>
+      </div>
+      <div>
+        <p class="text-white font-semibold text-sm">Processado pela IA</p>
+        <p class="text-white/70 text-xs">Confiança: 98%</p>
+      </div>
+      <span class="ml-auto text-xs bg-white/20 text-white px-3 py-1 rounded-full font-semibold">Alta prioridade</span>
+    </div>
+
+    <!-- Fields -->
+    <div class="px-6 py-5 space-y-4">
+
+      <div class="flex items-start gap-4">
+        <div class="w-9 h-9 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <span class="material-icons text-sky-500 text-base">title</span>
+        </div>
+        <div class="flex-1">
+          <p class="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-0.5">Título</p>
+          <p class="text-slate-800 font-bold text-base">Reunião com professor orientador</p>
+        </div>
+      </div>
+
+      <div class="w-full h-px bg-slate-100"></div>
+
+      <div class="flex items-start gap-4">
+        <div class="w-9 h-9 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <span class="material-icons text-sky-500 text-base">calendar_today</span>
+        </div>
+        <div class="flex-1">
+          <p class="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-0.5">Data</p>
+          <p class="text-slate-800 font-bold text-base">Amanhã — Sábado, 21/03/2026</p>
+        </div>
+      </div>
+
+      <div class="w-full h-px bg-slate-100"></div>
+
+      <div class="flex items-start gap-4">
+        <div class="w-9 h-9 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <span class="material-icons text-sky-500 text-base">schedule</span>
+        </div>
+        <div class="flex-1">
+          <p class="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-0.5">Horário</p>
+          <p class="text-slate-800 font-bold text-base">14:00</p>
+        </div>
+      </div>
+
+      <div class="w-full h-px bg-slate-100"></div>
+
+      <div class="flex items-start gap-4">
+        <div class="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <span class="material-icons text-amber-500 text-base">flag</span>
+        </div>
+        <div class="flex-1">
+          <p class="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-0.5">Prioridade</p>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-amber-400 rounded-full"></span>
+            <p class="text-slate-800 font-bold text-base">Alta</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full h-px bg-slate-100"></div>
+
+      <!-- Editable Note -->
+      <div class="flex items-start gap-4">
+        <div class="w-9 h-9 rounded-xl bg-sky-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <span class="material-icons text-sky-500 text-base">notes</span>
+        </div>
+        <div class="flex-1">
+          <p class="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-1">Observação</p>
+          <input type="text" placeholder="Adicionar nota..." value="TCC — orientação do projeto Genie"
+                 class="w-full text-slate-800 font-medium text-sm bg-slate-50 rounded-xl px-3 py-2 border border-slate-200 focus:outline-none focus:border-sky-400 transition-colors"/>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Action Buttons -->
+  <section class="fade-up-3 w-full flex flex-col gap-3">
+    <button onclick="window.location.href='genie3_home.html'"
+            class="w-full py-4 rounded-2xl font-plus-jakarta font-bold text-base active-scale transition-all"
+            style="background: linear-gradient(135deg, #38bdf8, #2563eb); box-shadow: 0 8px 24px rgba(14,165,233,0.35);">
+      Salvar tarefa
+    </button>
+    <div class="grid grid-cols-2 gap-3">
+      <button class="py-3.5 rounded-2xl font-semibold text-sm active-scale"
+              style="background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);">
+        <span class="flex items-center justify-center gap-2">
+          <span class="material-icons text-base">edit</span>
+          Editar
+        </span>
+      </button>
+      <button onclick="window.location.href='genie2.html'"
+              class="py-3.5 rounded-2xl font-semibold text-sm active-scale"
+              style="background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);">
+        <span class="flex items-center justify-center gap-2">
+          <span class="material-icons text-base">mic</span>
+          Nova gravação
+        </span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Add more tasks hint -->
+  <section class="fade-up-4 w-full rounded-2xl p-4 flex items-center gap-3"
+           style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);">
+    <span class="material-icons text-sky-200 text-xl">lightbulb</span>
+    <p class="text-white/80 text-xs leading-relaxed">
+      <span class="font-semibold text-white">Dica:</span> Você pode falar múltiplas tarefas de uma vez.
+      Ex: "Reunião amanhã às 2, e comprar pão às 7 da tarde."
+    </p>
+  </section>
+
+</main>
+
+<!-- BOTTOM NAV -->
+<nav class="fixed bottom-0 left-0 w-full z-50 h-24 flex justify-around items-center px-8 rounded-t-[3rem]"
+     style="background: rgba(255,255,255,0.15); backdrop-filter: blur(20px); box-shadow: 0 -10px 40px rgba(0,153,204,0.08);">
+  <a href="genie3_home.html" class="flex flex-col items-center p-2 opacity-60">
+    <span class="material-icons text-3xl">home</span>
+    <span class="text-[10px] text-white/70 mt-0.5">Home</span>
+  </a>
+  <a href="genie2.html"
+     class="flex flex-col items-center text-white rounded-full p-4 -translate-y-4 active-scale"
+     style="background: linear-gradient(135deg, #38bdf8, #2563eb); box-shadow: 0 10px 30px rgba(14,165,233,0.4);">
+    <span class="material-icons text-3xl">mic_none</span>
+  </a>
+  <a href="genie1.html" class="flex flex-col items-center p-2 opacity-60">
+    <span class="material-icons text-3xl">event_repeat</span>
+    <span class="text-[10px] text-white/70 mt-0.5">Lembretes</span>
+  </a>
+</nav>
+
+</body>
+</html>
